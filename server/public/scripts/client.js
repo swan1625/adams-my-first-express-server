@@ -5,6 +5,8 @@ $(document).ready(onReady);    ///
 
 function onReady() {
     getQuotes();
+    $('#send-button').on('click', addQuote);
+
 }
 
 function getQuotes() {
@@ -30,4 +32,23 @@ function renderToDom(quotes) {
         </p>`);
     }
 
+}
+
+function addQuote(){
+    //using ajax to make a POST request to server
+    $.ajax({
+        method: 'POST', // type of request
+        url: '/quotes',  /// route we will match on
+        data: {                      /// data must be on object !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            quoteToAdd: {
+                text:  $(`#quote-input`).val(),
+                author: $(`#author-input`).val()
+            }
+        }
+    }).then(function(response){
+        console.log('look as us now, DAWG!');
+        getQuotes();             ///to refresh the dom with the new quote
+    }).catch(function(response){
+        console.log('oh no :(!', response);
+    })    
 }
