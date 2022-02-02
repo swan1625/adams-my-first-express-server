@@ -25,6 +25,8 @@ function getQuotes() {
 }
 
 function renderToDom(quotes) {
+     //empty element before reappending everything
+     $('#output').empty();
     for (let quote of quotes) {
         $('#output').append(`<p>
         ${quote.text}, <i> ${quote.author} </i>

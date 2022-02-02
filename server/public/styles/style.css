@@ -1,4 +1,16 @@
 h1 {
+    background-color: rgb(131, 185, 134);
+    color: rgb(77, 10, 35);
+}
+
+#send-button{
     background-color: burlywood;
-    color: red;
+    color: darkviolet;
+    height: 100px;
+    width: 80px;
+}
+
+#output{
+
+    background-color: dodgerblue;
 }
